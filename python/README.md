@@ -24,9 +24,9 @@ python setup.py sdist bdist_wheel
 Copy app.tar.gz from created dist directory to some test directory
 In testdirectory, create and source new venv, deploy your package there:
 
-> virtualenv venv
+> python3 -m venv NAME
 
-> source venv/bin/activate
+> source NAME/bin/activate
 
 > pip install app.tar.gz
 
