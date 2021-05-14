@@ -6,5 +6,6 @@ set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
 project(HelloWorld)
+include_directories(include)
 
 add_executable(HelloWorld src/main.cpp)
