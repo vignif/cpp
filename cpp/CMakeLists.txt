@@ -5,7 +5,7 @@ add_definitions(-std=c++17)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(HelloWorld)
+project(Pool)
 include_directories(include)
 
-add_executable(HelloWorld src/main.cpp)
+add_executable(Pool src/main.cpp src/account.cpp)
