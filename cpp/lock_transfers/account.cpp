@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include <mutex>
 #include <string>
 #include <functional>
 #include <thread>
@@ -55,13 +54,13 @@ void Account::transfer(Account &from, Account &to, float num)
     std::unique_lock<std::mutex> lock2(to._balance_mtx, std::defer_lock);
 
     // lock both unique_locks without deadlock
-    std::lock(lock1, lock2);
     if (from.getName() == to.getName())
     {
         std::cout << "Can't transfer to same user" << std::endl;
     }
     else
     {
+        std::lock(lock1, lock2);
         std::cout << "From: \t" << from.getName() << "\t to: " << to.getName() << " \t" << num << std::endl;
         from.withdraw(num);
         to.deposit(num);

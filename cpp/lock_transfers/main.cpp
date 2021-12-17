@@ -16,8 +16,9 @@ int main()
     B.addAccount(A2);
     B.transfer(A1, A2, 10);
     B.transfer(A3, A2, 20);
+    B.transfer(A2, A1, 30);
     B.transfer(A2, A2, 30);
     B.compute();
-    //B.printAccounts();
+    B.printAccounts();
     return 0;
 }

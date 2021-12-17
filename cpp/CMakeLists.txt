@@ -4,15 +4,16 @@ add_definitions(-std=c++17)
 
 set(CXX_FLAGS "-Wall")
 
-set(CMAKE_CXX_FLAGS, "${CXX_FLAGS} ${CMAKE_CXX_FLAGS} -pthread -fsanitize=address")
+set(CMAKE_CXX_FLAGS, "${CXX_FLAGS} ${CMAKE_CXX_FLAGS} -pthread")
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-project(Pool)
+project(LockTransfers)
 find_package (Threads REQUIRED)
 
-include_directories(include)
+include_directories(lock_transfers/include)
 
-add_executable(Pool src/main.cpp src/account.cpp src/bank.cpp)
+add_executable(LockTransfers lock_transfers/main.cpp lock_transfers/account.cpp lock_transfers/bank.cpp)
 
-target_link_libraries(Pool
-    ${CMAKE_THREAD_LIBS_INIT} -fsanitize=address
+target_link_libraries(LockTransfers
+    ${CMAKE_THREAD_LIBS_INIT} 
 )
